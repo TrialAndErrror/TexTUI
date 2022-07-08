@@ -1,0 +1,106 @@
+config:
+    Window:
+        styles:
+            border: &w-border-style "[#5A6572]{item}"
+            corner: *w-border-style
+
+    Container:
+        styles:
+            border: &c-border-style "[#7D98A1]{item}"
+            corner: *c-border-style
+
+    Button:
+        styles:
+            label: "[@#1C2220 #A9B4C2]{item}"
+            highlight: "[#1C2220 @#A9B4C2]{item}"
+
+    Splitter:
+        chars:
+            separator: "   "
+
+boxes:
+    OUTER: [
+        "█▀▀▀█",
+        "█ x █",
+        "█▄▄▄█",
+    ]
+
+markup:
+    title: "#A9B4C2 bold"
+    subtitle: "italic dim"
+    body: "245"
+
+widgets:
+    MainWindow:
+      id: main-window
+      type: Window
+      box: OUTER
+      width: 70
+      widgets:
+        - Label:
+            value: "[title]YAML is cool!"
+            # value: "YAML is cool!"
+        - Label: {}
+
+        - Label:
+            value: "[subtitle]Here are some facts about it:"
+        - Label: {}
+
+        - Splitter:
+            widgets:
+                - Container:
+                    id: container-left
+                    box: SINGLE
+                    widgets:
+                        - Label:
+                              value: >-
+                                -[body] YAML originally stood for "Yet Another Markup
+                                Language", but was later modified to mean "YAML Ain't
+                                Markup".
+
+                              parent_align: 0
+
+                - Container:
+                    id: container-right
+                    box: SINGLE
+                    widgets:
+                        - Label:
+                              value: >-
+                                -[body] The language was designed by Clark Evans, Ingy
+                                döt Net and Oren Ben-Kiki.
+
+                              parent_align: 0
+
+        - Label: {}
+        - Button:
+            id: button-definition
+            label: Get definition
+
+        - Button:
+            id: button-close
+            label: Close
+    InputBox:
+      id: window-input
+      type: Window
+      width: 70
+      widgets:
+        Label:
+          value: Enter API URL
+
+        InputField:
+          value: "URL"
+          id: "input-field"
+
+        Button:
+          value: "Get Data"
+          id: "get-data-button"
+
+    LeftBox:
+      id: left-box
+      type: Window
+      width: 25
+
+    RightBox:
+      id: right-box
+      type: Window
+      width: 25
