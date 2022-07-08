@@ -129,8 +129,7 @@ class OurCustomWindow:
 
 def main():
     with ptg.WindowManager() as manager:
-        main_window = InputWindow(manager)
-        manager.add(main_window.window)
+        manager = yaml_window(manager)
         manager.run()
 
 

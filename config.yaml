@@ -79,21 +79,22 @@ widgets:
         - Button:
             id: button-close
             label: Close
-    InputBox:
-      id: window-input
-      type: Window
-      width: 70
-      widgets:
-        Label:
-          value: Enter API URL
 
-        InputField:
-          value: "URL"
-          id: "input-field"
-
-        Button:
-          value: "Get Data"
-          id: "get-data-button"
+#    InputBox:
+#      id: window-input
+#      type: Window
+#      width: 70
+#      widgets:
+#        Label:
+#          value: Enter API URL
+#
+#        InputField:
+#          value: "URL"
+#          id: "input-field"
+#
+#        Button:
+#          value: "Get Data"
+#          id: "get-data-button"
 
     LeftBox:
       id: left-box
