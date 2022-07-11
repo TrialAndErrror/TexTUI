@@ -1,107 +1,129 @@
 config:
-    Window:
-        styles:
-            border: &w-border-style "[#5A6572]{item}"
-            corner: *w-border-style
+  Window:
+    styles:
+      border: &w-border-style "[#5A6572]{item}"
+      corner: *w-border-style
 
-    Container:
-        styles:
-            border: &c-border-style "[#7D98A1]{item}"
-            corner: *c-border-style
+  Container:
+    styles:
+      border: &c-border-style "[#7D98A1]{item}"
+      corner: *c-border-style
 
-    Button:
-        styles:
-            label: "[@#1C2220 #A9B4C2]{item}"
-            highlight: "[#1C2220 @#A9B4C2]{item}"
+  Button:
+    styles:
+      label: "[@#1C2220 #A9B4C2]{item}"
+      highlight: "[#1C2220 @#A9B4C2]{item}"
 
-    Splitter:
-        chars:
-            separator: "   "
+  Splitter:
+    chars:
+      separator: "   "
 
 boxes:
-    OUTER: [
-        "█▀▀▀█",
-        "█ x █",
-        "█▄▄▄█",
-    ]
+  OUTER: [
+    "█▀▀▀█",
+    "█ x █",
+    "█▄▄▄█",
+  ]
 
 markup:
-    title: "#A9B4C2 bold"
-    subtitle: "italic dim"
-    body: "245"
+  title: "#A9B4C2 bold"
+  subtitle: "italic dim"
+  body: "245"
 
 widgets:
-    MainWindow:
-      id: main-window
-      type: Window
-      box: OUTER
-      width: 70
-      widgets:
-        - Label:
-            value: "[title]YAML is cool!"
-            # value: "YAML is cool!"
-        - Label: {}
+  MainWindow:
+    id: main-window
+    type: Window
+    box: OUTER
+    width: 70
+    widgets:
+      - Label:
+          value: "[title]YAML is cool!"
+          # value: "YAML is cool!"
+      - Label: { }
 
-        - Label:
-            value: "[subtitle]Here are some facts about it:"
-        - Label: {}
+      - Label:
+          value: "[subtitle]Here are some facts about it:"
+      - Label: { }
 
-        - Splitter:
-            widgets:
-                - Container:
-                    id: container-left
-                    box: SINGLE
-                    widgets:
-                        - Label:
-                              value: >-
-                                -[body] YAML originally stood for "Yet Another Markup
-                                Language", but was later modified to mean "YAML Ain't
-                                Markup".
+      - Splitter:
+          widgets:
+            - Container:
+                id: container-left
+                box: SINGLE
+                widgets:
+                  - Label:
+                      value: >-
+                        -[body] YAML originally stood for "Yet Another Markup
+                        Language", but was later modified to mean "YAML Ain't
+                        Markup".
 
-                              parent_align: 0
+                      parent_align: 0
 
-                - Container:
-                    id: container-right
-                    box: SINGLE
-                    widgets:
-                        - Label:
-                              value: >-
-                                -[body] The language was designed by Clark Evans, Ingy
-                                döt Net and Oren Ben-Kiki.
+            - Container:
+                id: container-right
+                box: SINGLE
+                widgets:
+                  - Label:
+                      value: >-
+                        -[body] The language was designed by Clark Evans, Ingy
+                        döt Net and Oren Ben-Kiki.
 
-                              parent_align: 0
+                      parent_align: 0
 
-        - Label: {}
-        - Button:
-            id: button-definition
-            label: Get definition
+      - Label: { }
+      - Button:
+          id: button-definition
+          label: Get definition
 
-        - Button:
-            id: button-close
-            label: Close
+      - Button:
+          id: button-close
+          label: Close
 
-#    InputBox:
-#      id: window-input
-#      type: Window
-#      width: 70
-#      widgets:
-#        Label:
-#          value: Enter API URL
-#
-#        InputField:
-#          value: "URL"
-#          id: "input-field"
-#
-#        Button:
-#          value: "Get Data"
-#          id: "get-data-button"
+  InputBox:
+    id: window-input
+    type: Window
+    width: 70
+    widgets:
+      - Label:
+          value: Enter API URL
 
-    LeftBox:
-      id: left-box
-      type: Window
-      width: 25
+      - InputField:
+          id: input-field
 
-    RightBox:
-      id: right-box
-      type: Window
-      width: 25
+      - Label:
+          id: warning-label
+
+      - Button:
+          value: Get Data
+          id: get-data-button
+
+  SplitBox:
+    id: split-box
+    type: Window
+    width: 70
+    widgets:
+      - Label:
+          value: "[title]Side-by-Side Data"
+
+      - Splitter:
+          widgets:
+            - Container:
+                id: left-box
+                box: SINGLE
+                widgets:
+                  - Label:
+                      id: left-label
+                      value: No Data Found
+
+            - Container:
+                id: right-box
+                box: SINGLE
+                widgets:
+                  - Label:
+                      id: right-label
+                      value: No Data Found
+
+      - Button:
+          id: close-button
+          value: Close Window
